@@ -1,0 +1,312 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
+/* Reset CSS */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Global Styles */
+body {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
+  font-family: "Poppins", sans-serif;
+}
+a {
+  text-decoration: none;
+}
+ul {
+  list-style: none;
+}
+
+/* Header */
+.header {
+  background-color: black;
+  box-shadow: 1px 1px 5px 0px var(--gray);
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 2;
+}
+/* Logo */
+.logo {
+  display: inline-block;
+  color: var(--white);
+  font-size: 60px;
+  margin-left: 10px;
+}
+
+/* Nav menu */
+.nav {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background-color: black;
+  overflow: hidden;
+}
+.menu a {
+  display: block;
+  padding: 30px;
+  color: white;
+}
+.menu a:hover {
+  background-color: grey;
+}
+.nav {
+  max-height: 0;
+  transition: max-height 0.5s ease-out;
+}
+
+/* Menu Icon */
+.hamb {
+  cursor: pointer;
+  float: right;
+  padding: 40px 20px;
+  margin: 0px;
+} /* Style label tag */
+
+.hamb-line {
+  background: white;
+  display: block;
+  height: 2px;
+  position: relative;
+  width: 24px;
+} /* Style span tag */
+
+.hamb-line::before,
+.hamb-line::after {
+  background: white;
+  content: "";
+  display: block;
+  height: 100%;
+  position: absolute;
+  transition: all 0.2s ease-out;
+  width: 100%;
+}
+.hamb-line::before {
+  top: 5px;
+}
+.hamb-line::after {
+  top: -5px;
+}
+
+.side-menu {
+  display: none;
+} /* Hide checkbox */
+
+.side-menu:checked ~ nav {
+  max-height: 100%;
+}
+.side-menu:checked ~ .hamb .hamb-line {
+  background: transparent;
+}
+.side-menu:checked ~ .hamb .hamb-line::before {
+  transform: rotate(-45deg);
+  top: 0;
+}
+.side-menu:checked ~ .hamb .hamb-line::after {
+  transform: rotate(45deg);
+  top: 0;
+}
+
+/* Responsiveness */
+@media (min-width: 768px) {
+  .nav {
+    max-height: none;
+    top: 0;
+    position: relative;
+    float: right;
+    width: fit-content;
+    background-color: transparent;
+  }
+  .menu li {
+    float: left;
+  }
+  .menu a:hover {
+    background-color: transparent;
+    color: grey;
+  }
+
+  .hamb {
+    display: none;
+  }
+}
+
+/* About Section */
+.section {
+  padding: 100px 0;
+  background-color: #f9e6e6;
+}
+
+.section-header {
+  font-size: 36px;
+  margin-bottom: 30px;
+}
+
+.section-content {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.about {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.about-content {
+  flex: 1;
+  padding: 0 20px;
+  animation: slideInLeft 1s ease-out;
+}
+
+.about-image {
+  flex: 1;
+  animation: slideInRight 1s ease-out;
+}
+
+.about-image img {
+  max-width: 100%;
+  height: auto;
+}
+
+.button {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #000;
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: background-color 0.3s ease-out;
+}
+
+.button:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+@keyframes slideInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+#gallery {
+  background-color: #f2f2f2;
+}
+
+/* Gallery Section */
+.gallery-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+  position: relative; /* Add position relative for child animations */
+}
+
+.gallery-container img {
+  margin: 10px;
+  transform: scale(1); /* Set initial scale for images */
+  transition: transform 0.3s ease-in-out; /* Add transition to images */
+  cursor: pointer; /* Change cursor to pointer on hover */
+  z-index: 1;
+}
+
+.gallery-container img:hover {
+  transform: scale(1.1); /* Increase scale on hover */
+  z-index: 1; /* Bring hovered image to the top */
+}
+
+/* Add overlay for image description */
+.gallery-container img::after {
+  content: attr(alt); /* Get image alt text as content */
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out; /* Add transition to overlay */
+}
+
+.gallery-container img:hover::after {
+  opacity: 1; /* Show overlay on hover */
+}
+
+/* Contact Section */
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+label {
+  margin-top: 20px;
+}
+
+input,
+textarea {
+  padding: 10px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 5px;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+}
+
+textarea {
+  height: 150px;
+  resize: none;
+}
+
+button[type="submit"] {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #555;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+.header a {
+  scroll-behavior: smooth;
+}
