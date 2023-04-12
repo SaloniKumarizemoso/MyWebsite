@@ -94,7 +94,7 @@ ul {
 
 .side-menu {
   display: none;
-} /* Hide checkbox */
+}
 
 .side-menu:checked ~ nav {
   max-height: 100%;
@@ -111,7 +111,6 @@ ul {
   top: 0;
 }
 
-/* Responsiveness */
 @media (min-width: 768px) {
   .nav {
     max-height: none;
@@ -134,15 +133,14 @@ ul {
   }
 }
 
-/* About Section */
 .section {
-  padding: 100px 0;
+  /* padding: 100px 0; */
   background-color: #f9e6e6;
 }
 
 .section-header {
   font-size: 36px;
-  margin-bottom: 30px;
+  /* margin-bottom: 30px; */
 }
 
 .section-content {
@@ -155,7 +153,7 @@ ul {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 40px;
+  /* margin-top: 40px; */
 }
 
 .about-content {
@@ -217,7 +215,9 @@ ul {
 #gallery {
   background-color: #f2f2f2;
 }
-
+.section-header {
+  text-align: center;
+}
 /* Gallery Section */
 .gallery-container {
   display: flex;
@@ -227,23 +227,56 @@ ul {
   margin-top: 40px;
   position: relative; /* Add position relative for child animations */
 }
+.item {
+  margin: 10px;
+  flex-basis: calc(33.33% - 20px);
+}
 
+.item1 {
+  flex-basis: calc(66.66% - 20px);
+}
+
+.item2 {
+  flex-basis: calc(50% - 20px);
+}
+
+.item3 {
+  flex-basis: calc(33.33% - 20px);
+}
+
+.item4 {
+  flex-basis: calc(33.33% - 20px);
+}
+
+.item5 {
+  flex-basis: calc(50% - 20px);
+}
+
+.item6 {
+  flex-basis: calc(66.66% - 20px);
+}
+
+.item img {
+  width: 100%;
+  height: auto;
+}
 .gallery-container img {
   margin: 10px;
   transform: scale(1); /* Set initial scale for images */
   transition: transform 0.3s ease-in-out; /* Add transition to images */
   cursor: pointer; /* Change cursor to pointer on hover */
   z-index: 1;
+  /* width: 200px;
+  height: auto; */
 }
 
 .gallery-container img:hover {
-  transform: scale(1.1); /* Increase scale on hover */
-  z-index: 1; /* Bring hovered image to the top */
+  transform: scale(1.1);
+  z-index: 1;
 }
 
-/* Add overlay for image description */
 .gallery-container img::after {
-  content: attr(alt); /* Get image alt text as content */
+  content: attr(alt);
   position: absolute;
   left: 0;
   bottom: 0;
@@ -253,11 +286,11 @@ ul {
   font-size: 14px;
   font-weight: bold;
   opacity: 0;
-  transition: opacity 0.3s ease-in-out; /* Add transition to overlay */
+  transition: opacity 0.3s ease-in-out;
 }
 
 .gallery-container img:hover::after {
-  opacity: 1; /* Show overlay on hover */
+  opacity: 1;
 }
 
 /* Contact Section */
