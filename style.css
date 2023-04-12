@@ -305,6 +305,7 @@ button[type="submit"] {
   padding: 10px 20px;
   margin-top: 20px;
   cursor: pointer;
+  margin-bottom: 35px;
 }
 
 button[type="submit"]:hover {
