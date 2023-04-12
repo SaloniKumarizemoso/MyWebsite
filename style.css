@@ -139,6 +139,7 @@ ul {
 }
 
 .section-header {
+  padding-top: 20px;
   font-size: 36px;
   /* margin-bottom: 30px; */
 }
@@ -225,51 +226,24 @@ ul {
   justify-content: center;
   align-items: center;
   margin-top: 40px;
-  position: relative; /* Add position relative for child animations */
-}
-.item {
-  margin: 10px;
-  flex-basis: calc(33.33% - 20px);
+  position: relative;
+  padding-bottom: 30px;
+  /* Add position relative for child animations */
 }
 
-.item1 {
-  flex-basis: calc(66.66% - 20px);
-}
-
-.item2 {
-  flex-basis: calc(50% - 20px);
-}
-
-.item3 {
-  flex-basis: calc(33.33% - 20px);
-}
-
-.item4 {
-  flex-basis: calc(33.33% - 20px);
-}
-
-.item5 {
-  flex-basis: calc(50% - 20px);
-}
-
-.item6 {
-  flex-basis: calc(66.66% - 20px);
-}
-
-.item img {
-  width: 100%;
-  height: auto;
-}
 .gallery-container img {
   margin: 10px;
   transform: scale(1); /* Set initial scale for images */
   transition: transform 0.3s ease-in-out; /* Add transition to images */
   cursor: pointer; /* Change cursor to pointer on hover */
   z-index: 1;
-  /* width: 200px;
-  height: auto; */
+  width: calc(25% - 20px);
+  margin: 10px;
 }
 
+.gallery-container img:nth-child(3n + 1) {
+  clear: left;
+}
 .gallery-container img:hover {
   transform: scale(1.1);
   z-index: 1;
